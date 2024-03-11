@@ -1,0 +1,57 @@
+/* Add a black background color to the top navigation */
+    nav {
+    background-color: #18453b;
+    overflow: hidden;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+  
+  /* Style the links inside the navigation bar */
+    nav a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 15px;
+  }
+  
+  /* Change the color of links on hover */
+  nav a:hover {
+    background-color: #0b9a6d;
+    color: black;
+  }
+  
+  /* Add a color to the active/current link */
+  nav a.active {
+    background-color: #008208;
+    color: white;
+  }
+
+h1 {
+    color:forestgreen;
+    font-size: 32px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Style all font awesome icons - specifically have Facebook here*/
+.fa {
+    padding: 20px;
+    font-size: 30px;
+    width: 50px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 50%;
+  }
+  
+  /* Add a hover effect if you want */
+  .fa:hover {
+    opacity: 0.7;
+  }
+  
+  /* Set a specific color for each brand */
+  
+  /* Facebook */
+  .fa-facebook {
+    background: #3B5998;
+    color: white;
+  }
