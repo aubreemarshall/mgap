@@ -55,3 +55,8 @@ h1 {
     background: #3B5998;
     color: white;
   }
+
+  div {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
