@@ -180,8 +180,17 @@ h1 {
     padding-right: 20px;
   }
 
+  page-container {
+    position: relative;
+    min-height: 100vh;
+  }
+  
+  content-wrap {
+    padding-bottom: 2.5rem;    /* Footer height */
+  }
+
   footer {
     background-color: #18453b;
     color: white;
-    position:absolute;
+    position: bottom;
   }
