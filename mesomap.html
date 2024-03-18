@@ -3,12 +3,33 @@
 
 <head>
 
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin=""/>
     <link rel="stylesheet" href="style.sheet.css">
+
+
+     <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+    crossorigin=""></script>
+
+    <style>
+        #map {
+            position: absolute;
+            top: 400px;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+    </style>
+
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Mesoamerica Map</title>
           
+    <div id="map"></div>
     
 </head>
 
@@ -55,20 +76,86 @@
 
         <div>
 
-            <p><center><big>Aubs: info on what this map will say/do. Below put map</big></center></p>
+            <p><center><big>Aubs: info on what this map will say/do. Put above map</big></center></p>
+
+            <br><br/>
 
         </div>
+
+        <script>
+            var map = L.map('map').setView([18.35, -89.45], 6);
+
+            var osm = L.tileLayer('https://api.maptiler.com/maps/streets-v2/{z}/{x}/{y}.png?key=EKeqQuSYD2TH9zg9cS8q', {
+        maxZoom: 19,
+        attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>'
+    }).addTo(map);
+    
+    var Satellite = L.tileLayer('https://api.maptiler.com/maps/satellite/{z}/{x}/{y}.jpg?key=EKeqQuSYD2TH9zg9cS8q', {
+        minZoom: 0,
+        maxZoom: 20,
+        attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>',
+        ext: 'png'
+    });
+    
+    var topographic = L.tileLayer('https://api.maptiler.com/maps/topo-v2/{z}/{x}/{y}.png?key=EKeqQuSYD2TH9zg9cS8q', {
+        minZoom: 0,
+        maxZoom: 20,
+        attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>',
+        ext: 'png'
+    });
+
+    //Leaflet Layer Control
+
+var baseMaps = {'Open Street Map': osm,
+'Satellite': Satellite,
+'Topographic': topographic,
+}
+
+L.control.layers(baseMaps).addTo(map);
+
+//this bit of code adds a scale in the upper left corner below the zoom
+
+L.control.scale({
+    metric: true,
+    imperial: true,
+    maxWidth: 100,
+    position: 'topleft'
+}).addTo(map); 
+
+L.geoJSON(geojson).bindPopup(function(layer){
+    return layer.feature.properties.name;
+}).addTo(map)
+
+    </script>
     
     </main>
 
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br> 
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
     <br></br>
 
     <footer>
 
         <br></br>
+
+
         <div>
     
             <p><small>Thank you to the Cultural Heritage Informatics (CHI) Graduate Fellowship Program at Michigan State University for the financial and educational support needed for this project to launch.</small></p> 
+
+            <br></br>
+            
+            <p><small><small>The trowel icon (titled "archaeology") is by Wireform from <a href="https://thenounproject.com/browse/icons/term/archaeology/" target="_blank" title="archaeology Icons">Noun Project</a> (CC BY 3.0).</small></small></p>
+            
+            <p><small><small>The pin with vase icon (titled "archaeology site") is by corpus delicti from <a href="https://thenounproject.com/browse/icons/term/archaeology-site/" target="_blank" title="archaeology site Icons">Noun Project</a> (CC BY 3.0).</small></small></p>
     
         </div>
     

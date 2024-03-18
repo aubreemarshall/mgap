@@ -192,5 +192,8 @@ h1 {
   footer {
     background-color: #18453b;
     color: white;
-    position: bottom;
+  }
+
+  map {
+    height: 180px;
   }
