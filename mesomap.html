@@ -16,8 +16,8 @@
 
     <style>
         #map {
-            position: absolute;
-            top: 400px;
+            position: fixed;
+            top: 0;
             bottom: 0;
             left: 0;
             right: 0;
@@ -37,13 +37,12 @@
 <body>
 
     <header>
-        
+    
         <!-- Navigation bar -->
        <header class="header">
    
-        <!--attempt at adding photo *update: I GOT IT TO WORK-->
-
-        <img width="150" src="img/scribe_logo.png" class="logo2" alt="The MGAP Field School logo."/>
+<!--logo-->
+<a href="index.html" id="logo" class="logo">MGAP</a>
    
            <!-- Hamburger icon -->
            <input class="side-menu" type="checkbox" id="side-menu"/>
@@ -62,7 +61,7 @@
        </nav>
    
        </header>
-
+<!--
     <main>
         <br></br>
         <br></br>
@@ -74,9 +73,22 @@
 
         <div>
 
-            <p><center><big>Aubs: info on what this map will say/do. Put above map</big></center></p>
+            <p><center><big>The ancient Maya lived in the Mesoamerican region. Mesoamerica consists of modern day southern Mexico, Guatemala, Honduras, El Salvador, and Belize.</big></center></p>
+
+            <br></br>
+
+            <p><center><big><b>Aubs: info on what this map will say/do. Put above map</b></big></center></p>
+-->
+
+            <!--Understanding how different communities and regions interacted with one another is integral to understanding how communities survived and navigated larger events, including the Classic Maya Collapse. As MG is located relatively close to the modern town of San Pedro, a hub for tourism, the website can provide more information about MG as tourists visit. It will provide more information for anyone interested in the site and how it’s connected to larger Mesoamerica.
+            
+            Deliverables and outcomes will include a mobile phone website that can be utilized by the public. The project will be place-based; it will consist of a map of Mesoamerica with points in areas where artifacts from MG would have come, which structure they were found in at MG, and more information on the artifact and the location (for example, some ceramics came from the Pacific coast, so there would be a point there; once clicked, there will be an image of the artifact with more information on the artifact and what structure they were found in at MG, as well as more information on the communities located on the Pacific coast). The domain name will be “belizemgap”. 
+
+            There will be a second subsection with a map of Mesoamerica with the points of where artifacts came from, providing more information about said location and the artifact. 
+            -->
 
             <br><br/>
+            
 
         </div>
 
@@ -87,36 +99,15 @@
         maxZoom: 19,
         attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>'
     }).addTo(map);
-    
-    var Satellite = L.tileLayer('https://api.maptiler.com/maps/satellite/{z}/{x}/{y}.jpg?key=EKeqQuSYD2TH9zg9cS8q', {
-        minZoom: 0,
-        maxZoom: 20,
-        attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>',
-        ext: 'png'
-    });
-    
-    var topographic = L.tileLayer('https://api.maptiler.com/maps/topo-v2/{z}/{x}/{y}.png?key=EKeqQuSYD2TH9zg9cS8q', {
-        minZoom: 0,
-        maxZoom: 20,
-        attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>',
-        ext: 'png'
-    });
 
-    //Leaflet Layer Control
 
-var baseMaps = {'Open Street Map': osm,
-'Satellite': Satellite,
-'Topographic': topographic,
-}
-
-L.control.layers(baseMaps).addTo(map);
 
 //this bit of code adds a scale in the upper left corner below the zoom
 
 L.control.scale({
     metric: true,
     imperial: true,
-    maxWidth: 100,
+    maxWidth: 90,
     position: 'topleft'
 }).addTo(map); 
 
@@ -126,7 +117,7 @@ var geojson = {
     {
       "type": "Feature",
       "properties": {
-        "name": "Zombie Valley",
+        "name": "mesomap",
         "stroke": "#c11010",
         "stroke-width": 2,
         "stroke-opacity": 1,
@@ -138,7 +129,7 @@ var geojson = {
     {
       "type": "Feature",
       "properties": {
-        "name": "Zombie Valley"
+        "name": "mesomap"
       },
       "geometry": {
         "coordinates": [
@@ -160,53 +151,31 @@ L.geoJSON(geojson).bindPopup(function(layer){
 
 var myIcon = L.icon({
     iconUrl: "img/mg.png",
-    iconSize: [40, 60],
+    iconSize: [40, 40],
     iconAnchor: [20, 50],
     popupAnchor: [0, -50],
+    attribution: '<a href="https://thenounproject.com/icon/archaeology-1343243/" target="_blank">The trowel icon (titled "archaeology") is by Wireform from Noun Project (CC BY 3.0).</a> <a href="https://thenounproject.com/icon/archaeology-site-743280/" target="_blank">The pin with vase icon (titled "archaeology site") is by corpus delicti from Noun Project (CC BY 3.0).</a>'
+});
+
+var pin = L.icon({
+    iconUrl: "img/pin.png",
+    iconSize: [40, 40],
+    iconAnchor: [20, 50],
+    popupAnchor: [0, -50],
+    attribution: '<a href="https://thenounproject.com/icon/archaeology-1343243/" target="_blank">The trowel icon (titled "archaeology") is by Wireform from Noun Project (CC BY 3.0).</a> <a href="https://thenounproject.com/icon/archaeology-site-743280/" target="_blank">The pin with vase icon (titled "archaeology site") is by corpus delicti from Noun Project (CC BY 3.0).</a>'
 });
 
 var mesomap = L.marker([17.88164, -88.01452], {icon: myIcon}).addTo(map)
-    var popUp = mesomap.bindPopup("<h1>Marco Gonzalez</h1><p>...</p><img src='hi.jpg' style= 'width:100px'>")
+    var popUp = mesomap.bindPopup("<h1>Marco Gonzalez</h1><p>You are here! As you can see, Marco Gonzalez is located on the eastern part of the Maya world.</p><center><img src='img/single_scribe.png' style= 'width:100px'></center>")
 
+    var mesomap = L.marker([17.4, -88.4], {icon: pin}).addTo(map)
+    var popUp = mesomap.bindPopup("<h1>practice</h1><p>You are here! As you can see, Marco Gonzalez is located on the eastern part of the Maya world.</p><center><img src='img/single_scribe.png' style= 'width:100px'></center>")
 
 
     </script>
     
     </main>
 
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br> 
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-
-    <footer>
-
-        <br></br>
-
-
-        <div>
-    
-            <p><small>Thank you to the Cultural Heritage Informatics (CHI) Graduate Fellowship Program at Michigan State University for the financial and educational support needed for this project to launch.</small></p> 
-
-            <br></br>
-            
-            <p><small><small>The trowel icon (titled "archaeology") is by Wireform from <a href="https://thenounproject.com/browse/icons/term/archaeology/" target="_blank" title="archaeology Icons">Noun Project</a> (CC BY 3.0).</small></small></p>
-            
-            <p><small><small>The pin with vase icon (titled "archaeology site") is by corpus delicti from <a href="https://thenounproject.com/browse/icons/term/archaeology-site/" target="_blank" title="archaeology site Icons">Noun Project</a> (CC BY 3.0).</small></small></p>
-    
-        </div>
-    
-        <!-- Add font awesome icons -->
-       <p align="right"> <a href="https://www.facebook.com/marcogonzalezmayasite/" class="fa fa-facebook" target="_blank">f</a></p>
-    <br></br>
-        </footer>
 
 </body>
 
