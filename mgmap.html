@@ -2,13 +2,34 @@
 <html lang="en">
 
 <head>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
 
     <link rel="stylesheet" href="style.sheet.css">
+
+    <!-- Make sure you put this AFTER Leaflet's CSS -->
+   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+   integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+   crossorigin=""></script>
+
+
+   <style>
+       #map {
+           position: fixed;
+           top: 0;
+           bottom: 0;
+           left: 0;
+           right: 0;
+       }
+   </style>
+
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Marco Gonzalez Map</title>     
     
+    <div id="map"></div>
+
 </head>
 
 <body>
@@ -49,18 +70,89 @@
 
 <div>
 
-    <p><center><big>Aubs:&nbsp;More info on MG, also talk about how map works/what they'll learn. Below: put map of marco&nbsp;</big></center></p>
-
-    <br></br>
-
     
-    <iframe width="100%" height="500px" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://mapwarper.net/maps/tile/81125/{z}/{x}/{y}.png"></iframe>
 
     <!--As visitors go through the different points on the map, they can look at the structures where the artifacts were found.
     
     The data of this website will include multimedia and text-based data on MG and the excavations previously conducted, the artifacts found at MG, and the sites from which the artifacts came. After each season, any new findings will be included on the website (by Aubree) so that those interested can be most up-to-date. We work with several specialists (i.e., ceramicists and lithics specialists) throughout the field season who can (and have) provided valuable information about where artifacts would have originated from.
 
 -->
+
+<script>
+    var map = L.map('map').setView([17.8823, -88.01472], 18);
+
+
+    var osm = L.tileLayer('https://api.maptiler.com/maps/streets-v2/{z}/{x}/{y}.png?key=EKeqQuSYD2TH9zg9cS8q', {
+maxZoom: 19,
+attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>'
+}).addTo(map);
+
+// Add MapWarper PNG as a custom layer
+var imageUrl = 'img/81125.png';
+        var imageBounds = [[17.880242, -88.015857], [17.883652, -88.012882]]; // Example image bounds (latitude, longitude)
+        
+        var mapwarperLayer = L.imageOverlay(imageUrl, imageBounds).addTo(map);
+
+mapwarperLayer.setOpacity(0.5);
+
+//this bit of code adds a scale in the upper left corner below the zoom
+
+
+L.control.scale({
+metric: true,
+imperial: true,
+maxWidth: 90,
+position: 'topleft'
+}).addTo(map);
+
+
+var geojson = {
+"type": "FeatureCollection",
+"features": [
+{
+"type": "Feature",
+"properties": {
+"name": "mesomap",
+"stroke": "#c11010",
+"stroke-width": 2,
+"stroke-opacity": 1,
+"fill": "#0e5d13",
+"fill-opacity": 0.5
+},
+"id": 0
+},
+]
+}
+
+
+L.geoJSON(geojson).bindPopup(function(layer){
+return layer.feature.properties.name;
+}).addTo(map)
+
+
+//Marker
+
+
+var myIcon = L.icon({
+iconUrl: "img/mg.png",
+iconSize: [40, 40],
+iconAnchor: [20, 50],
+popupAnchor: [0, -50],
+attribution: '<a href="https://thenounproject.com/icon/archaeology-1343243/" target="_blank">The trowel icon (titled "archaeology") is by Wireform from Noun Project (CC BY 3.0).</a> <a href="https://thenounproject.com/icon/archaeology-site-743280/" target="_blank">The pin with vase icon (titled "archaeology site") is by corpus delicti from Noun Project (CC BY 3.0).</a>'
+});
+
+
+var pin = L.icon({
+iconUrl: "img/pin.png",
+iconSize: [40, 40],
+iconAnchor: [20, 50],
+popupAnchor: [0, -50],
+attribution: '<a href="https://thenounproject.com/icon/archaeology-1343243/" target="_blank">The trowel icon (titled "archaeology") is by Wireform from Noun Project (CC BY 3.0).</a> <a href="https://thenounproject.com/icon/archaeology-site-743280/" target="_blank">The pin with vase icon (titled "archaeology site") is by corpus delicti from Noun Project (CC BY 3.0).</a>'
+});
+
+
+</script>
+
 
 </div>
 
