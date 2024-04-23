@@ -197,3 +197,41 @@ h1 {
   map {
     height: 180px;
   }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  button {
+    background-color: #0b9a6d;
+    border: 0; 
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    color: #f9f9f9;
+    font-size: 14px;
+    padding: 10px 25px;
+  }
+
+  .modal-container {
+    background-color: rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    pointer-events: none;
+    top: 0;
+    left: 0; 
+    height: 100vw; 
+    width: 100vw;
+  }
+
+  .modal {
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    padding: 30px 50px;
+    width: 600px; 
+    max-width: 100%;
+    text-align: center;
+  }
+

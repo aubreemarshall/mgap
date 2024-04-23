@@ -30,9 +30,11 @@
     
     <div id="map"></div>
 
+
 </head>
 
 <body>
+
     <header>
         
         <!-- Navigation bar -->
@@ -60,6 +62,40 @@
        </header>
 
 <main>
+
+<script>
+
+    const modal_container = document.getElementById('modal_container');
+
+    const close = document.getElementById('close');
+
+</script>
+
+<script>
+    close.addEventListener('click', () => {
+        modal_container.classList.add('close');
+    });
+</script>
+
+<div class="modal-container" id="modal_container">
+    <div class="modal">
+
+        <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
+            <span aria-hidden="true">&times;</span>
+          </button></div>
+
+          <br></br>
+
+        <h1><center>Marco Gonzalez</center></h1>
+
+        <br></br>
+
+        <p><big><center>This is the map of all of the archaeological structures found thus far at Marco Gonzalez.</center></big></p>
+
+
+    </div>
+</div>
+
     <br></br>
     <br></br>
     <br></br>
@@ -157,6 +193,7 @@ attribution: '<a href="https://thenounproject.com/icon/archaeology-1343243/" tar
 </div>
 
 </main>
+<footer></footer>
 
 <br></br>
 
