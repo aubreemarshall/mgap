@@ -6,6 +6,16 @@
     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
 
     <link rel="stylesheet" href="style.sheet.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<script>
+	$(document).ready(function(){
+		$("#myModal").modal('show');
+	});
+</script>
+
+
 
     <!-- Make sure you put this AFTER Leaflet's CSS -->
    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
@@ -33,7 +43,27 @@
 
 </head>
 
-<body>
+<body> 
+
+    <div id="myModal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title">Marco Gonzalez</h1>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <center><p><big>This is the map of all of the archaeological structures found thus far at Marco Gonzalez!
+                    </p>
+                    <p>As you go through the site, you can look at what artifacts were found at which structures during previous excavations.</p>
+
+                    <p>We work with several specialists (including ceramicists and lithics specialists) throughout the field season who can (and have) provided valuable information about where artifacts would have originated from. Where available, information about where the artifact came from will be included in the pop up.</p>
+    
+                    <p>After each season, any new findings will be included on the website, so stay tuned to stay up-to-date on our work!</big></p></center>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <header>
         
@@ -63,59 +93,19 @@
 
 <main>
 
-<script>
-
-    const modal_container = document.getElementById('modal_container');
-
-    const close = document.getElementById('close');
-
-</script>
-
-<script>
-    close.addEventListener('click', () => {
-        modal_container.classList.add('close');
-    });
-</script>
-
-<div class="modal-container" id="modal_container">
-    <div class="modal">
-
-        <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
-            <span aria-hidden="true">&times;</span>
-          </button></div>
-
-          <br></br>
-
-        <h1><center>Marco Gonzalez</center></h1>
-
-        <br></br>
-
-        <p><big><center>This is the map of all of the archaeological structures found thus far at Marco Gonzalez.</center></big></p>
-
-
-    </div>
-</div>
-
     <br></br>
     <br></br>
     <br></br>
-
-    <h1><center>Map of Marco Gonzalez</center></h1>
-
-    <br><br/>
+    <br></br>
+    <br></br>
 
 <div>
 
     
 
-    <!--As visitors go through the different points on the map, they can look at the structures where the artifacts were found.
-    
-    The data of this website will include multimedia and text-based data on MG and the excavations previously conducted, the artifacts found at MG, and the sites from which the artifacts came. After each season, any new findings will be included on the website (by Aubree) so that those interested can be most up-to-date. We work with several specialists (i.e., ceramicists and lithics specialists) throughout the field season who can (and have) provided valuable information about where artifacts would have originated from.
-
--->
 
 <script>
-    var map = L.map('map').setView([17.8823, -88.01472], 18);
+    var map = L.map('map').setView([17.882622, -88.014406], 17);
 
 
     var osm = L.tileLayer('https://api.maptiler.com/maps/streets-v2/{z}/{x}/{y}.png?key=EKeqQuSYD2TH9zg9cS8q', {
