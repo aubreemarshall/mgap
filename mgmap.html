@@ -103,7 +103,7 @@
 
 
 <script>
-    var map = L.map('map').setView([17.882622, -88.014406], 17);
+    var map = L.map('map').setView([17.882622, -88.014406], 18);
 
 
     var osm = L.tileLayer('https://api.maptiler.com/maps/streets-v2/{z}/{x}/{y}.png?key=EKeqQuSYD2TH9zg9cS8q', {
@@ -117,7 +117,7 @@ var imageUrl = 'img/81125.png';
         
         var mapwarperLayer = L.imageOverlay(imageUrl, imageBounds).addTo(map);
 
-mapwarperLayer.setOpacity(0.5);
+mapwarperLayer.setOpacity(0.3);
 
 //this bit of code adds a scale in the upper left corner below the zoom
 
@@ -159,21 +159,26 @@ return layer.feature.properties.name;
 
 var myIcon = L.icon({
 iconUrl: "img/mg.png",
-iconSize: [40, 40],
+iconSize: [35, 35],
 iconAnchor: [20, 50],
 popupAnchor: [0, -50],
 attribution: '<a href="https://thenounproject.com/icon/archaeology-1343243/" target="_blank">The trowel icon (titled "archaeology") is by Wireform from Noun Project (CC BY 3.0).</a> <a href="https://thenounproject.com/icon/archaeology-site-743280/" target="_blank">The pin with vase icon (titled "archaeology site") is by corpus delicti from Noun Project (CC BY 3.0).</a>'
 });
 
+var mesomap = L.marker([17.882349, -88.014576], {icon: myIcon}).addTo(map)
+    var popUp = mesomap.bindPopup("<h1><center>Structure 25</center></h1><center><p>Coming soon!</p></center><center><a href='str25.html'>LEARN MORE HERE</a></center>")
 
-var pin = L.icon({
-iconUrl: "img/pin.png",
-iconSize: [40, 40],
-iconAnchor: [20, 50],
-popupAnchor: [0, -50],
-attribution: '<a href="https://thenounproject.com/icon/archaeology-1343243/" target="_blank">The trowel icon (titled "archaeology") is by Wireform from Noun Project (CC BY 3.0).</a> <a href="https://thenounproject.com/icon/archaeology-site-743280/" target="_blank">The pin with vase icon (titled "archaeology site") is by corpus delicti from Noun Project (CC BY 3.0).</a>'
-});
+    var mesomap = L.marker([17.881854, -88.014559], {icon: myIcon}).addTo(map)
+    var popUp = mesomap.bindPopup("<h1><center>Structure 14</center></h1><center><p>Coming soon!</p></center><center><a href='str14.html'>LEARN MORE HERE</a></center>")
 
+    var mesomap = L.marker([17.881834, -88.014450], {icon: myIcon}).addTo(map)
+    var popUp = mesomap.bindPopup("<h1><center>Structure 12</center></h1><center><p>Coming soon!</p></center><center><a href='str12.html'>LEARN MORE HERE</a></center>")
+
+    var mesomap = L.marker([17.881710, -88.014497], {icon: myIcon}).addTo(map)
+    var popUp = mesomap.bindPopup("<h1><center>Structure 18</center></h1><center><p>Coming soon!</p></center><center><a href='str18.html'>LEARN MORE HERE</a></center>")
+
+    var mesomap = L.marker([17.881958, -88.014288], {icon: myIcon}).addTo(map)
+    var popUp = mesomap.bindPopup("<h1><center>Structure 13</center></h1><center><p>Coming soon!</p></center><center><a href='str13.html'>LEARN MORE HERE</a></center>")
 
 </script>
 
