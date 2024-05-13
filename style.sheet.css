@@ -152,6 +152,12 @@ h1 {
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+h2 {
+  color:#0b9a6d;
+  font-size: 28px;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
   div {
     padding-left: 20px;
     padding-right: 20px;
